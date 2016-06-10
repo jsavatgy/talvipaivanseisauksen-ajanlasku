@@ -1,17 +1,29 @@
 import Data.Time
 import System.Locale (defaultTimeLocale)
 
-{-
+plusOneTime t = 
+  ztime t
+  where
     tz = hoursToTimeZone 1 -- create a +0100 timezone
-    lt = utcToLocalTime tz now
--}
+    ztime t = utcToZonedTime tz t
+
+fmtTime t =
+  formatTime defaultTimeLocale "%Y-%m-%d %H:%M %z" t
 
 main = do
   now <- getCurrentTime
   putStrLn (formatTime defaultTimeLocale "%Y-%m-%d %H:%M" now)
+  -- 2016-06-10 11:33
+  putStrLn (fmtTime now)
+  -- 2016-06-10 11:33 +0000
+  let t1 = plusOneTime now
+  putStrLn (fmtTime t1)
+  -- 2016-06-10 12:33 +0100
+  zt <- getZonedTime
+  putStrLn (fmtTime zt)
+  -- 2016-06-10 13:33 +0200
 
-
-solsticesUtc = [
+solsticesUtcList = [
   "2015-12-22 04:48",
   "2016-12-21 10:44",
   "2017-12-21 16:28",
