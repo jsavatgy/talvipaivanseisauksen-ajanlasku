@@ -27,19 +27,25 @@ getddays t1 t2 = diffDays (localDay (zonedTimeToLocalTime t1))
 
 main = do
   now <- getCurrentTime
+  putStrLn (formatTime defaultTimeLocale "%Y-%m-%d %H:%M" now)
+  -- 2016-06-10 11:33
   putStrLn (fmtTime now)
   -- 2016-06-10 11:33 +0000
   let t1 = plusOneTime now
   putStrLn (fmtTime t1)
   -- 2016-06-10 12:33 +0100
+  zt <- getZonedTime
+  putStrLn (fmtTime zt)
+  -- 2016-06-10 13:33 +0200
   putStrLn (show (getHour t1))
   mapM_ (putStrLn . show) wss
   mapM_ (putStrLn . show) wss1
   let 
     dds = map (getddays t1) wss1
     fds = minimum (filter (<=366) (takeWhile (>=1) dds))
+
+  --mapM_ (putStrLn . show) fds
   print fds
-  -- 174
 
 solsticesUtcList = [
   "2015-12-22 04:48",
