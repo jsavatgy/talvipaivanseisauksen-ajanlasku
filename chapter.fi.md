@@ -221,7 +221,7 @@ Haluamme talvipäivänseisauksen, jonka ero annettuun päivämäärään on suur
 (2015-12-22 05:48:00 +0100,178)
 ```
 
-Saamme kahden alkion tietuen, jossa ensimmäinen alkio on talvipäivänseisauksen ajankohta ja toinen alkio päivien ero talvipäivänseisauksesta. Funktion `takeWhile` palauttama lista saattaa olla tyhjä. Tällöin tiedämme, että annettu päivämäärä sijoittuu ennen ensimmäistä talvipäivänseisausta luettelossa. 
+Saamme kahden alkion tietueen, jossa ensimmäinen alkio on talvipäivänseisauksen ajankohta ja toinen alkio päivien ero talvipäivänseisauksesta. Funktion `takeWhile` palauttama lista saattaa olla tyhjä. Tällöin tiedämme, että annettu päivämäärä sijoittuu ennen ensimmäistä talvipäivänseisausta luettelossa. 
 
 ## Muunnos talvipäivänseisauksen ajanlaskuun
 

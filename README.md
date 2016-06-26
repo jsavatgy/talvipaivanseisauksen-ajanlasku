@@ -231,7 +231,7 @@ Voimme nyt määritellä funktion `utcToSolstician`.
 ```haskell
 utcToSolstician ut 
   | null ts   = "Not implemented for days before " ++ (head solsticesUtcList)
-  | otherwise = intercalate "-" [show year, showDay day, showBeats t1]
+  | otherwise = intercalate "." [show year, showDay day, showBeats t1]
   where
     t1 = plusOneTime ut 
     ts = takeWhile (\(t2,d) -> d >= 1) (dds t1)
@@ -294,13 +294,13 @@ Päädymme käyttämään talvipäivänseisauksen ajanlaskussa "likimain nykyist
 
 ## Esimerkki talvipäivänseisauksen ajanlaskusta
 
-Annettu päivämäärä `"2016-06-17 20:11 +0100"` kääntyy näin ollen talvipäivänseisauksen ajanlaskussa päivämääräksi `"2016-178-841.5 BMT"`.
+Annettu päivämäärä `"2016-06-17 20:11 +0100"` kääntyy näin ollen talvipäivänseisauksen ajanlaskussa päivämääräksi `"2016.178.841.5 BMT"`.
 
 ```haskell
 > fmtTime t1
 "2016-06-17 20:11 +0100"
 > utcToSolstician now
-"2016-178-841.5 BMT"
+"2016.178.841.5 BMT"
 ```
 
 Ohjelmakoodi kokonaisuudessaan on tiedostossa [bmt-now.hs](bmt-now.hs).

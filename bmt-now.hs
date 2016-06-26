@@ -57,7 +57,7 @@ showBeats = showBeatsBMT . inBeats
 
 utcToSolstician ut 
   | null ts   = "Not implemented for days before " ++ (head solsticesUtcList)
-  | otherwise = intercalate "-" [show year, showDay day, showBeats t1]
+  | otherwise = intercalate "." [show year, showDay day, showBeats t1]
   where
     t1 = plusOneTime ut 
     ts = takeWhile (\(t2,d) -> d >= 1) (dds t1)
